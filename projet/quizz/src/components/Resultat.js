@@ -7,6 +7,20 @@ function Resultat() {
     const context = useContext(ContextGlobal);
 
     const handleClick = (event) => {
+        const donneeAEnvoyer = {
+            'email_de_la_presonne' : context.email
+        };
+
+        // POST https://xonatis.academy/react/api/persos
+        fetch('https://xonatis.academy/react/api/persos', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(donneeAEnvoyer)
+        }).then(response => response.json());
+
         history.push('/commencez');
     }
 
