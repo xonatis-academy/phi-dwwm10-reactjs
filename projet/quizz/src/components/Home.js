@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import ContextGlobal from '../common/ContextGlobal';
 
 function Home() {
     const [email, setEmail] = useState('michael@xonatis.com');
     const history = useHistory();
+    const context = useContext(ContextGlobal);
 
     const handleChange = (event) => {
         setEmail(event.target.value)
     };
 
     const handleClick = (event) => {
+        context.email = email;
         history.push('/question-1');
     }
 

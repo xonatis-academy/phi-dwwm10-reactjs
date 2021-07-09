@@ -1,8 +1,11 @@
+import React from 'react';
 import Question from './Question';
 
 function Page1() {
     return (
-        <Question textAfficher="Aimez-vous faire le design d'un site internet ?" suivant="/question-2" />
+        <Question textAfficher="Aimez-vous faire le design d'un site internet ?" 
+        suivant="/question-2" 
+        champs="noteQuestion1" />
     );
 }
 

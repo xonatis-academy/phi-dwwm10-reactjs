@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import ContextGlobal from '../common/ContextGlobal';
 
 function Question(props) {
     const [noteChoisi, setNoteChoisi] = useState(0);
     const history = useHistory();
+    const context = useContext(ContextGlobal);
 
     const handleClick = (note) => (event) =>  {
         setNoteChoisi(note);
+        context[props.champs] = note;
         history.push(props.suivant);
     }
 
